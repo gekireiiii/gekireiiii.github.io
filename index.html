@@ -16,7 +16,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #0088ff; /* Синие ссылки как на Akatsuki */
+    color: #0088ff;
 }
 a:hover {
     text-decoration: underline;
@@ -24,7 +24,7 @@ a:hover {
 
 /* ===== CONTAINER ===== */
 .container {
-    max-width: 850px; /* Чуть шире для соответствия классическим сайтам */
+    max-width: 850px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -35,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: flex-end;
     padding: 20px 0 10px;
-    border-bottom: 3px solid #333; /* Толстая линия снизу хедера */
+    border-bottom: 3px solid #333;
 }
 
 .header-logo img {
@@ -126,7 +126,7 @@ nav a:hover {
 .section-title::after {
     content: '';
     flex-grow: 1;
-    border-bottom: 2px solid #555; /* Линия справа от текста */
+    border-bottom: 2px solid #555;
     margin-left: 10px;
 }
 
@@ -136,7 +136,7 @@ nav a:hover {
 }
 
 .news-date {
-    color: #e600a0; /* Розовый цвет дат */
+    color: #e600a0;
     font-weight: bold;
     font-family: monospace;
     font-size: 14px;
@@ -386,8 +386,7 @@ function openTab(tabId) {
     let tabs = document.querySelectorAll(".tab-content");
     tabs.forEach(tab => tab.classList.remove("active"));
     document.getElementById(tabId).classList.add("active");
-    
-    // Предотвращение прыжка страницы вверх при клике на ссылку с href="#"
+
     event.preventDefault();
 }
 </script>
