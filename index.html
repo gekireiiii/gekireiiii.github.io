@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gekireiiii | Artist</title>
+<!-- Подключаем красивые шрифты для эстетики артбука -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== BASE ===== */
+body {
+    font-family: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    margin: 0;
+    /* Текстура легкой японской бумаги с едва заметным паттерном */
+    background-color: #f7f5f0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: #2c2422; 
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: #900C3F; /* Глубокий красный */
+    transition: all 0.3s ease;
+}
+a:hover {
+    color: #c70039;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+header {
+    padding: 40px 0 20px;
+    border-bottom: 1px solid #d4af37;
+    position: relative;
+}
+header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #900C3F;
+    margin-top: 5px;
+}
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+.header-logo:hover {
+    transform: scale(1.02);
+}
+.header-logo img {
+    height: 50px; /* Чуть крупнее для акцента */
+}
+
+/* ===== BIO ===== */
+.bio-section {
+    text-align: center;
+    padding: 30px 0 20px;
+    font-size: 1.2rem;
+    color: #4a3e3d;
+}
+.bio-section p {
+    margin: 0;
+    font-style: italic;
+}
+.bio-section strong {
+    font-weight: 600;
+    color: #900C3F;
+}
+
+/* ===== DECORATIVE LINES & TITLES ===== */
+.content-wrapper {
+    margin-top: 20px;
+}
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2c2422;
+    display: flex;
+    align-items: center;
+    margin: 40px 0 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.section-title::before {
+    content: '❧'; /* Отсылка к Инь-Ян / Тохо */
+    color: #900C3F;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+.section-title::after {
+    content: '';
+    flex-grow: 1;
+    border-bottom: 1px solid #d4af37; 
+    margin-left: 15px;
+    position: relative;
+    top: 2px;
+}
+
+/* ===== TWO ARTS GRID ===== */
+.arts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* ===== GALLERY ART BLOCK ===== */
+.art-block {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #e8e3d3;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+}
+.art-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(144, 12, 63, 0.1);
+    border-color: #d4af37;
+}
+.art-header {
+    font-family: 'Courier New', Courier, monospace;
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.art-header::before {
+    content: '❀'; /* Сакура */
+    color: #d4af37;
+    margin-right: 5px;
+    font-size: 1rem;
+}
+.art-image-container {
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.art-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+.art-block:hover .art-image-container img {
+    opacity: 0.95;
+}
+.art-title {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #2c2422;
+}
+
+/* ===== SIDEBAR LINKS GRID ===== */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+.social-links li {
+    display: block;
+}
+.social-links a {
+    display: block;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #e8e3d3;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4a3e3d;
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    background: #900C3F;
+    color: #f7f5f0;
+    border-color: #900C3F;
+    box-shadow: 0 4px 10px rgba(144, 12, 63, 0.2);
+    letter-spacing: 1px;
+}
+
+/* ===== VIDEO ===== */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    background: #000;
+    margin-bottom: 40px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #1a1615;
+    color: #e8e3d3;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    border-top: 3px solid #900C3F;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .arts-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .social-links {
+        grid-template-columns: 1fr 1fr;
+    }
+    .section-title {
+        font-size: 1.3rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-logo">
+            <a href="#">
+                <img src="gekirei-logo-horizontal.png" alt="gekireiiii">
+            </a>
+        </div>
+    </header>
+    
+    <section class="bio-section">
+        <p><strong>Artist</strong> &nbsp; | &nbsp; 東方 Project enthusiast<br>
+        contact: <a href="mailto:gekireiiii@gmail.com">gekireiiii@gmail.com</a></p>
+    </section>
+</div>
+
+<div class="container">
+    <div class="content-wrapper">
+        
+        <div class="section-title">Gallery</div>
+        
+        <div class="arts-container">
+            <div class="art-block">
+                <div class="art-header">2025.04.29</div>
+                <div class="art-body">
+                    <div class="art-image-container">
+                        <img src="2025.04.29.jpeg" alt="Seija Kijin">
+                    </div>
+                    <div class="art-title">「punderfullll // Seija Kijin」</div>
+                </div>
+            </div>
+            
+            <div class="art-block">
+                <div class="art-header">2026.01.14</div>
+                <div class="art-body">
+                    <div class="art-image-container">
+                        <img src="2026.01.14.jpeg" alt="Yuuka Kazami">
+                    </div>
+                    <div class="art-title">「punderfullll // Yuuka Kazami」</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">Links</div>
+        <ul class="social-links">
+            <li><a href="https://x.com/gekireiiii" target="_blank">X (Twitter)</a></li>
+            <li><a href="https://www.pixiv.net/stacc/gekireiiii" target="_blank">Pixiv</a></li>
+            <li><a href="https://gekireiiii.tumblr.com" target="_blank">Tumblr</a></li>
+            <li><a href="https://www.instagram.com/gekireiiii/" target="_blank">Instagram</a></li>
+            <li><a href="https://bsky.app/profile/gekireiiii.bsky.social" target="_blank">Bluesky</a></li>
+            <li><a href="https://www.tiktok.com/@gekireiiii" target="_blank">TikTok</a></li>
+            <li><a href="https://www.facebook.com/share/1NHtmxFbN9/?mibextid=wwXIfr" target="_blank">Facebook</a></li>
+            <li><a href="https://steamcommunity.com/id/gekireiiii/" target="_blank">Steam</a></li>
+        </ul>
+        
+        <div class="section-title">Movie</div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/SDZHsoiTVjo" allowfullscreen loading="lazy"></iframe>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    ©2026 gekireiiii. All Rights Reserved.
+</footer>
+
+</body>
+</html>
